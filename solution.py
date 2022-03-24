@@ -56,10 +56,10 @@ class Device:
         # print(f' BEST SPEED: {best_speed}')
         
         if best_station == None:
-            # print(f'No network station within reach for point {self.x_pos},{self.y_pos}')
+            print(f'No network station within reach for {self} at point {self.x_pos},{self.y_pos}')
             return
         else:
-            # print(f'Best network station for point {self.x_pos},{self.y_pos} is {best_station} located at {best_station.x_pos},{best_station.y_pos} with speed {round(best_speed, 2)}')
+            print(f'Best network station for {self} at point {self.x_pos},{self.y_pos} is {best_station} located at {best_station.x_pos},{best_station.y_pos} with speed {round(best_speed, 2)}')
             return best_station
 
     def __repr__(self):
@@ -98,7 +98,7 @@ def initialize(stations, devices):
     best_network_stations = []
     for device in devices:
         d = Device(device['x'], device['y'])    
-        # Append list of the device and it's best station to the list
+        # Append list of the device and it's best_network_station to the list
         best_network_stations.append([d, d.best_network_station()])
     return best_network_stations
 

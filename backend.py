@@ -9,8 +9,10 @@ def solution():
     # Delete existing Devices and Network Stations
     Device._devices = []
     NetworkStation._stations = []
+    # Initialize new Devices and Network Stations
     stations = input_network_stations()
     devices = input_devices()
+
     data = initialize(stations, devices)
     return render_template('index.html', data=data)
 
